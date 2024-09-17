@@ -1,30 +1,55 @@
-class Warrior():
-    def __init__(self, name, health, attack_power, energy):
-        self.name = name
-        self.health = health
-        self.attack_power = attack_power
-        self.energy = energy
+from datetime import date
 
-    def sleep(self):
-        print(f'{self.name} sleep')
-        self.health += 50
 
-    def attack(self, enemy):
-        print(f'{self.name} attacks {enemy.name}')
-        enemy.health -= self.attack_power
-        self.energy -= 5
+class Task:
+    def __init__(self, description, due_date, status):
+        self.description = description
+        self.due_date = due_date
+        self.status = status
 
-    def eat(self):
-        print(f'{self.name} eats')
-        self.health += 20
-        self.energy += 10
-        if self.health > 100:
-            self.health = 100
-        if self.energy > 100:
-            self.energy = 100
 
-    def info(self):
-        print(f'имя воина {self.name},энергия - {self.energy}, сила воина - {self.attack_power}, здоровье воина - {self.health}))
+    def get_description(self):
+        return self.description
+
+    def get_due_date(self):
+        return self.due_date
+
+    def get_status(self):
+        if self.status == 'Выполнено':
+            return 'Задача уже выполнена.'
+        elif self.status == 'Не выполнено':
+            return 'Задача не выполнена'
+
+
+task1 = Task('Организация хранения', f'{1}-сентябрь', 'Выполнено')
+task2 = Task('Сделать домашнее задание', f'{date(2024, 9, 1)}', 'Не выполнено')
+task3 = Task('Чистка кухни', f'{date(2024, 9, 1)}', 'Не выполнено')
+task4 = Task('Садовые работы', f'{date(2024, 9, 1)}', 'Выполнено')
+
+
+print(task1.get_description())
+print(task1.get_due_date())
+print(task1.get_status())
+
+print(task2.get_description())
+print(task2.get_due_date())
+print(task2.get_status())
+
+print(task3.get_description())
+print(task3.get_due_date())
+print(task3.get_status())
+
+print(task4.get_description())
+print(task4.get_due_date())
+print(task4.get_status())
+
+
+
+
+
+
+
+
 
 
 
